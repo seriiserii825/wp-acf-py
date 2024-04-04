@@ -31,6 +31,8 @@ showAll(file_path)
 group_id = chooseGroup(file_path)
 groups = getGroups(file_path)
 print(f"group id: {group_id}")
+showAll(file_path, group_id)
+
 # print(json.dumps(groups[group_index], indent=4))
 # editField(file_path)
 # addField(file_path) # add field
