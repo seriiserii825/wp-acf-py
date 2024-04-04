@@ -4,6 +4,7 @@ import os
 
 from termcolor import colored
 from acf_utils.group.chooseGroup import chooseGroup
+from acf_utils.group.editGroup import editGroup
 from acf_utils.group.getGroups import getGroups
 from acf_utils.group.groupMenu import groupMenu
 from acf_utils.group.showAll import showAll
@@ -40,6 +41,7 @@ def mainMenu(file_path):
     print(colored("1) Show All:", "yellow"))
     print(colored("2) Choose Group:", "green"))
     print(colored("3) Add Group:", "green"))
+    print(colored("4) Edit Group:", "green"))
     # print(colored("4) Delete Group:", "green"))
     # print(colored("4.1) Copy Group:", "green"))
     # print(colored("5) Add Field:", "blue"))
@@ -61,6 +63,10 @@ def mainMenu(file_path):
     elif action == "3":
         addGroup(file_path)  # add group
         # groupHandler(file_path)  # edit group
+        mainMenu(file_path)
+    elif action == "4":
+        group_id = chooseGroup(file_path)
+        editGroup(file_path, group_id)  # add group
         mainMenu(file_path)
     # elif action == "4":
     #     groupHandler(file_path, True)  # delete Group
