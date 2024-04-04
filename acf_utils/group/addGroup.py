@@ -18,14 +18,13 @@ def addGroup(file_path, group_id = None):
             data = json.load(file)
             if group_id:
                 group_path = getGroupPathById(file_path, group_id)
-                real_data = eval(group_path)
-                print(f"real_data: {real_data}")
+                print(f"group_path: {group_path}")
                 new_tab = newTab(new_group_name)
-                group_path.append(new_tab)
                 new_group = newGroup(new_group_name)
-                group_path.append(new_group)
+                exec(f"{group_path}['sub_fields'].append({new_tab})")
+                exec(f"{group_path}['sub_fields'].append({new_group})")
                 newData = json.dumps(data, indent=4)
-                print(json.dumps(group_path, indent=4))
+                print("Group added successfully!")
             else:
                 new_tab = newTab(new_group_name)
                 data[0]['fields'].append(new_tab)
@@ -33,9 +32,8 @@ def addGroup(file_path, group_id = None):
                 data[0]['fields'].append(new_group)
                 newData = json.dumps(data, indent=4)
                 print(json.dumps(data[0]['fields'], indent=4))
-            print(newData)
 
-        # with open(file_path, 'w') as file:
-        #     # write
-        #     file.write(newData)
+        with open(file_path, 'w') as file:
+            # write
+            file.write(newData)
         #
