@@ -5,7 +5,9 @@ import os
 from termcolor import colored
 from acf_utils.group.chooseGroup import chooseGroup
 from acf_utils.group.getGroups import getGroups
+from acf_utils.group.groupMenu import groupMenu
 from acf_utils.group.showAll import showAll
+from acf_utils.group.addGroup import addGroup
 from acf_utils.section.newSection import newSection
 from acf_utils.wp.wpExport import wpExport
 from acf_utils.wp.wpImport import wpImport
@@ -27,11 +29,70 @@ def getFullPath():
 
 
 file_path = getFullPath()
-showAll(file_path)
-group_id = chooseGroup(file_path)
-groups = getGroups(file_path)
-print(f"group id: {group_id}")
-showAll(file_path, group_id)
+# showAll(file_path)
+# group_id = chooseGroup(file_path)
+# groups = getGroups(file_path)
+# print(f"group id: {group_id}")
+# showAll(file_path, group_id)
+
+def mainMenu(file_path):
+    print('----------------------------- Menu -----------------------------')
+    print(colored("1) Show All:", "yellow"))
+    print(colored("2) Choose Group:", "green"))
+    print(colored("3) Add Group:", "green"))
+    # print(colored("4) Delete Group:", "green"))
+    # print(colored("4.1) Copy Group:", "green"))
+    # print(colored("5) Add Field:", "blue"))
+    # print(colored("5.1) Add Repeater Field:", "blue"))
+    # print(colored("6) Edit Field:", "blue"))
+    # print(colored("7) Delete Field:", "blue"))
+    # print(colored("8) Import:", "yellow"))
+    # print(colored("9) Export:", "yellow"))
+    print(colored("10) Exit:", "red"))
+    action = input("Enter your choice: ")
+    print('----------------------------- Menu -----------------------------')
+    if action == "1":
+        showAll(file_path)  # show groups with fields
+        mainMenu(file_path)
+    elif action == "2":
+        group_id = chooseGroup(file_path)
+        showAll(file_path, group_id)
+        groupMenu(file_path, group_id)
+    elif action == "3":
+        addGroup(file_path)  # add group
+        # groupHandler(file_path)  # edit group
+        mainMenu(file_path)
+    # elif action == "4":
+    #     groupHandler(file_path, True)  # delete Group
+    #     mainMenu(file_path)
+    # elif action == "4.1":
+    #     copyGroup(file_path)
+    #     exit()
+    # elif action == "5":
+    #     addField(file_path)  # add field
+    #     mainMenu(file_path)
+    # elif action == "5.1":
+    #     addField(file_path, is_repeater=True)  # add field
+    #     mainMenu(file_path)
+    # elif action == "6": # edit field
+    #     editField(file_path)
+    #     mainMenu(file_path)
+    # elif action == "7":#delete field
+    #     editField(file_path, True) 
+    #     mainMenu(file_path)
+    # elif action == "8":
+    #     wpImport()
+    #     mainMenu(file_path)
+    # elif action == "9":
+    #     wpExport()
+    #     mainMenu(file_path)
+    # elif action == "10":
+    #     exit()
+    else:
+        exit()
+mainMenu(file_path)
+
+
 
 # print(json.dumps(groups[group_index], indent=4))
 # editField(file_path)
