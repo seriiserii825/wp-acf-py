@@ -27,9 +27,9 @@ def newSection():
     pages = getWpPages()
     post_types = getWpPosts()
     taxonomies = getWpTaxonomies()
-    print(pages, "pages")
-    print(post_types, "post_types")
-    print(taxonomies, "taxonomies")
+    # print(pages, "pages")
+    # print(post_types, "post_types")
+    # print(taxonomies, "taxonomies")
     if input_type == "1":
         section_type_slug = "page"
         pages = getWpPages()
