@@ -6,6 +6,7 @@ from termcolor import colored
 def showAll(file_path):
     f = open(file_path,)
     data = json.load(f)
+    # print(json.dumps(data, indent=4))
     for i in data:
         for j in i['fields']:
             print(colored(j['label'], 'blue'), colored(j['name'], 'green'), colored(j['type'], 'red'))

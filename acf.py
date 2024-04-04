@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+import json
 import os
 
 from termcolor import colored
+from acf_utils.group.chooseGroup import chooseGroup
+from acf_utils.group.getGroups import getGroups
 from acf_utils.group.showAll import showAll
 from acf_utils.section.newSection import newSection
 from acf_utils.wp.wpExport import wpExport
@@ -25,6 +28,10 @@ def getFullPath():
 
 file_path = getFullPath()
 showAll(file_path)
+group_id = chooseGroup(file_path)
+groups = getGroups(file_path)
+print(f"group id: {group_id}")
+# print(json.dumps(groups[group_index], indent=4))
 # editField(file_path)
 # addField(file_path) # add field
 
