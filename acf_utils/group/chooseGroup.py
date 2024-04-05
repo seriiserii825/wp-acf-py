@@ -4,11 +4,13 @@ from acf_utils.group.getGroups import getGroups
 
 def chooseGroup(file_path):
     groups = getGroups(file_path)
-    # print(json.dumps(groups, indent=4))
     print("Choose a group:")
-    for i in groups:
-        index = groups.index(i)
-        print(f"{index}) {i['label']}")
+    for group in groups:
+        index = group['index']
+        print(f"{index}) {group['label']}")
     choice = input("Make your choice:")
-    group_id = groups[int(choice)]['key']
-    return group_id
+    if choice.isdigit():
+        return int(choice)
+    else:
+        chooseGroup(file_path)
+
