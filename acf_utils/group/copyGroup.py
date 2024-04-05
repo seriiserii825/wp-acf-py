@@ -28,6 +28,11 @@ def copyGroup(file_path):
             result += f"""
             ${field['name']} = ${group['name']}['{field['name']}'];
             """
+            if len(field['sub_fields']) > 0:
+                for sub_field in field['sub_fields']:
+                    result += f"""
+                    ${sub_field['name']} = ${field['name']}['{sub_field['name']}'];
+                    """
         writeToFile('result.txt', result)
         command=f"sed -i '/^[[:space:]]*$/d' 'result.txt'"
         os.system(command)

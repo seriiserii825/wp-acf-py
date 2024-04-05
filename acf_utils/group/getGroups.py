@@ -21,7 +21,7 @@ def getGroups(file_path):
                         fields.append(field)
                         continue
                 group = {'name': j['name'], 'label': j['label'], 'index': i['fields'].index(j), 'fields': fields}
-                print(json.dumps(group, indent=4))
+                # print(json.dumps(group, indent=4))
                 groups.append(group)
     # print(groups)
     return groups
