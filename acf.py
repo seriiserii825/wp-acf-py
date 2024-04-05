@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import json
 import os
-
 from termcolor import colored
 from acf_utils.group.chooseGroup import chooseGroup
 from acf_utils.group.editGroup import editGroup
@@ -15,29 +14,16 @@ from acf_utils.section.newSection import newSection
 from acf_utils.wp.wpExport import wpExport
 from acf_utils.wp.wpImport import wpImport
 from acf_utils.group.showGroups import showGroups
-
 if not os.path.exists("front-page.php"):
     exit(colored("Please run this script from the root of your theme folder!", "red"))
-
 def getFullPath():
     os.chdir("acf")
     json_file = os.popen("fzf").read()
-    # print(json_file)
-    # file_path=f"acf/page-home.json"
     file_path = f"acf/{json_file}"
     file_path = file_path.replace("\n", "")
-    # print(file_path)
     os.chdir("..")
     return file_path
-
-
 file_path = getFullPath()
-# showAll(file_path)
-# group_id = chooseGroup(file_path)
-# groups = getGroups(file_path)
-# print(f"group id: {group_id}")
-# showAll(file_path, group_id)
-
 def mainMenu(file_path):
     print('----------------------------- Menu -----------------------------')
     print(colored("1) Show All:", "yellow"))

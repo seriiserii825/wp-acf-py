@@ -1,7 +1,9 @@
 from termcolor import colored
 from acf_utils.fields.addField import addField
 from acf_utils.fields.deleteField import deleteField
+from acf_utils.fields.deleteSubField import deleteSubField
 from acf_utils.fields.editField import editField
+from acf_utils.fields.editSubField import editSubField
 
 from acf_utils.group.showAll import showAll
 from acf_utils.wp.wpExport import wpExport
@@ -27,10 +29,10 @@ def repeaterFieldsMenu(file_path, group_index, field_index):
         addField(file_path, group_index, field_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
     if action == "3":
-        editField(file_path, group_index)
+        editSubField(file_path, group_index, field_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
     if action == "4":
-        deleteField(file_path, group_index)
+        deleteSubField(file_path, group_index, field_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
     elif action == "5":
         wpImport()
