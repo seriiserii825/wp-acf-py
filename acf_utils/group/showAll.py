@@ -6,7 +6,7 @@ from termcolor import colored
 def showAll(file_path, group_index=None):
     f = open(file_path,)
     data = json.load(f)
-    # print(json.dumps(data, indent=4))
+
     if group_index:
         group = data[0]['fields'][group_index]
         group_subfields = data[0]['fields'][group_index]['sub_fields']

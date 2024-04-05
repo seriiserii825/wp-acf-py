@@ -16,8 +16,8 @@ def groupMenu(file_path, group_index):
     print('----------------------------- Group Menu -----------------------------')
     fields = getFields(file_path)
     group = fields[0][int(group_index)]
-    # group_sub_fields = group['sub_fields']
     breadcrumbs(group['label'])
+    showAll(file_path, group_index)
     print(colored("1) Show All:", "yellow"))
     print(colored("2) Add Field:", "blue"))
     print(colored("3) Choose Repeater Field:", "green"))
@@ -29,27 +29,24 @@ def groupMenu(file_path, group_index):
     print(colored("9) Back to Main Menu", "green"))
     action = input("Enter your choice: ")
     if action == "1":
-        showAll(file_path, group_index)
+        showAll(file_path)
         groupMenu(file_path, group_index)
     if action == "2":
         addField(file_path, group_index)
-        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     if action == "3":
         field_index = chooseRepeaterField(file_path, group_index)
-        if field_index == False:
+        if field_index == False or field_index == None:
             groupMenu(file_path, group_index)
         else:
             back = repeaterFieldsMenu(file_path, group_index, field_index)
-            if back == False:
+            if back == False or back == None:
                 groupMenu(file_path, group_index)
     if action == "4":
         editField(file_path, group_index)
-        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     if action == "5":
         deleteField(file_path, group_index)
-        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     elif action == "6":
         wpImport()

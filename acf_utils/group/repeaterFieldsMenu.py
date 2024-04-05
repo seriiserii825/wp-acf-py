@@ -17,7 +17,7 @@ def repeaterFieldsMenu(file_path, group_index, field_index):
     group = fields[0][int(group_index)]
     field = group['sub_fields'][int(field_index)]
     breadcrumbs(group['label'], field['label'])
-
+    showAll(file_path, group_index)
     print(colored("1) Show All:", "yellow"))
     print(colored("2) Add Field:", "blue"))
     print(colored("3) Edit Field:", "blue"))
@@ -28,10 +28,10 @@ def repeaterFieldsMenu(file_path, group_index, field_index):
     print(colored("8) Exit", "red"))
     action = input("Enter your choice: ")
     if action == "1":
-        showAll(file_path, group_index)
+        showAll(file_path)
         repeaterFieldsMenu(file_path, group_index, field_index)
     if action == "2":
-        print(f"field_index: {field_index}")
+        # print(f"field_index: {field_index}")
         addField(file_path, group_index, field_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
     if action == "3":

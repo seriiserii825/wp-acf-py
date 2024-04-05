@@ -16,6 +16,9 @@ from acf_utils.wp.wpImport import wpImport
 from acf_utils.group.showGroups import showGroups
 if not os.path.exists("front-page.php"):
     exit(colored("Please run this script from the root of your theme folder!", "red"))
+
+
+
 def getFullPath():
     os.chdir("acf")
     json_file = os.popen("fzf").read()
@@ -23,54 +26,70 @@ def getFullPath():
     file_path = file_path.replace("\n", "")
     os.chdir("..")
     return file_path
-file_path = getFullPath()
-def mainMenu(file_path):
-    print('----------------------------- Menu -----------------------------')
-    print(colored("1) Show All:", "yellow"))
-    print(colored("2) Choose Group:", "green"))
-    print(colored("3) Add Group:", "green"))
-    print(colored("4) Edit Group:", "green"))
-    print(colored("5) Delete Group:", "green"))
-    print(colored("6) Copy Group:", "green"))
-    print(colored("7) Import:", "yellow"))
-    print(colored("8) Export:", "yellow"))
-    print(colored("9) Exit:", "red"))
-    action = input("Enter your choice: ")
-    print('----------------------------- Menu -----------------------------')
-    if action == "1":
-        showAll(file_path)
-        mainMenu(file_path)
-    elif action == "2":
-        group_index = chooseGroup(file_path)
-        showAll(file_path, group_index)
-        back = groupMenu(file_path, group_index)
-        print(f"Back: {back}")
-        if back == False:
-            mainMenu(file_path)
-    elif action == "3":
-        addGroup(file_path)
-        showAll(file_path)
-        mainMenu(file_path)
-    elif action == "4":
-        editGroup(file_path)
-        showAll(file_path)
-        mainMenu(file_path)
-    elif action == "5":
-        deleteGroup(file_path)
-        showAll(file_path)
-        mainMenu(file_path)
-    elif action == "6":
-        copyGroup(file_path)
-        print(colored("Group copied successfully!", "green"))
-        exit()
-    elif action == "7":
-        wpImport()
-        mainMenu(file_path)
-    elif action == "8":
-        wpExport()
-        mainMenu(file_path)
-    elif action == "9":
-        exit()
-    else:
-        exit()
-mainMenu(file_path)
+
+print(getGroups(getFullPath()))
+
+# print(colored("Welcome to ACF CLI", "green"))
+# print(colored("1) Create new section", "yellow"))
+# print(colored("2) Select section", "yellow"))
+# print(colored("3) Import", "blue"))
+# print(colored("4) Export", "blue"))
+# print(colored("5) Exit", "red"))
+# choice = input("Make your choice:")
+# if choice == "1":
+#     newSection()
+# elif choice == "3":
+#     wpImport()
+# elif choice == "4":
+#     wpExport()
+# elif choice == "5":
+#     exit()
+# else:
+#     file_path = getFullPath()
+#     def mainMenu(file_path):
+#         showAll(file_path)
+#         print('----------------------------- Menu -----------------------------')
+#         print(colored("1) Show All:", "yellow"))
+#         print(colored("2) Choose Group:", "green"))
+#         print(colored("3) Add Group:", "green"))
+#         print(colored("4) Edit Group:", "green"))
+#         print(colored("5) Delete Group:", "green"))
+#         print(colored("6) Copy Group:", "green"))
+#         print(colored("7) Import:", "yellow"))
+#         print(colored("8) Export:", "yellow"))
+#         print(colored("9) Exit:", "red"))
+#         action = input("Enter your choice: ")
+#         print('----------------------------- Menu -----------------------------')
+#         if action == "1":
+#             showAll(file_path)
+#             mainMenu(file_path)
+#         elif action == "2":
+#             group_index = chooseGroup(file_path)
+#             back = groupMenu(file_path, group_index)
+#             print(f"Back: {back}")
+#             if back == False or back == None:
+#                 mainMenu(file_path)
+#         elif action == "3":
+#             addGroup(file_path)
+#             mainMenu(file_path)
+#         elif action == "4":
+#             editGroup(file_path)
+#             mainMenu(file_path)
+#         elif action == "5":
+#             deleteGroup(file_path)
+#             mainMenu(file_path)
+#         elif action == "6":
+#             copyGroup(file_path)
+#             print(colored("Group copied successfully!", "green"))
+#             exit()
+#         elif action == "7":
+#             wpImport()
+#             mainMenu(file_path)
+#         elif action == "8":
+#             wpExport()
+#             mainMenu(file_path)
+#         elif action == "9":
+#             exit()
+#         else:
+#             exit()
+#     mainMenu(file_path)
