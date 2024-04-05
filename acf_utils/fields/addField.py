@@ -1,11 +1,8 @@
 import json
 
-from termcolor import colored
 from acf_utils.fields.getRepeteaterFields import getRepeaterFields
 
 from acf_utils.fields.newField import newField
-from acf_utils.group.getGroups import getGroups
-from acf_utils.group.groupHasSubField import groupHasSubField
 
 def addField(file_path, group_index, is_repeater=False):
     if is_repeater:

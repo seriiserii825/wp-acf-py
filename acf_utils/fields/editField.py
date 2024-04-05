@@ -2,7 +2,6 @@ import json
 
 from acf_utils.fields.getFields import getFields
 from acf_utils.fields.newField import newField
-from acf_utils.group.showGroups import showGroups
 
 def editField(file_path, group_index):
     fields = getFields(file_path)
