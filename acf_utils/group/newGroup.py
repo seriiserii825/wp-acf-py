@@ -1,7 +1,7 @@
 from acf_utils.fields.getFieldId import getFieldId
 
 
-def newGroup(title):
+def newGroup(title, layout):
     field_id = getFieldId()
     slug = title.replace(" ", "_").lower()
     group = {}
@@ -18,6 +18,6 @@ def newGroup(title):
             "class": "",
             "id": ""
             }
-    group['layout'] = "block"
+    group['layout'] = layout
     group['sub_fields'] = []
     return group

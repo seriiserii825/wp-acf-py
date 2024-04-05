@@ -1,6 +1,7 @@
 import json
 from termcolor import colored
 from acf_utils.fields.getFields import getFields
+from acf_utils.group.addGroupLayout import addGroupLayout
 from acf_utils.group.getGroupByGroupId import getGroupByGroupId
 from acf_utils.group.getGroupPathById import getGroupPathById
 from acf_utils.group.getGroups import getGroups
@@ -29,20 +30,7 @@ def editGroup(file_path):
         if new_group_name == "":
             new_group_name = old_group_name
         new_group_slug = new_group_name.replace(" ", "_").lower()
-        print(colored("Group layout(Leave blank for block): ", "green"))
-        print(colored("1) block", "blue"))
-        print(colored("2) table", "yellow"))
-        print(colored("3) row", "red"))
-        new_group_layout = input(colored("Enter group layout:", "green"))
-        if new_group_layout == "1":
-            new_group_layout = "block"
-        elif new_group_layout == "2":
-            new_group_layout = "table"
-        elif new_group_layout == "3":
-            new_group_layout = "row"
-        else:
-            new_group_layout = "block"
-        print(f"Group layout: {new_group_layout}")
+        new_group_layout = addGroupLayout()
         with open(file_path, 'r') as file:
             # read
             data = json.load(file)

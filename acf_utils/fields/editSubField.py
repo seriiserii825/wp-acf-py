@@ -25,6 +25,7 @@ def editSubField(file_path, group_index, field_index):
         field_slug = field_name.replace(" ", "_").lower()
     else:
         field_slug = field_name.replace(" ", "_").lower()
+
     field_types = ['text', 'textarea', 'number', 'email', 'url', 'wysiwyg', 'image', 'gallery', 'file', 'repeater', 'message']
     for i in field_types:
         print(f"{field_types.index(i)}) {i}")
