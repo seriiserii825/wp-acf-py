@@ -62,15 +62,19 @@ def mainMenu(file_path):
             mainMenu(file_path)
     elif action == "3":
         addGroup(file_path)
+        showAll(file_path)
         mainMenu(file_path)
     elif action == "4":
         editGroup(file_path)
+        showAll(file_path)
         mainMenu(file_path)
     elif action == "5":
         deleteGroup(file_path)
+        showAll(file_path)
         mainMenu(file_path)
     elif action == "6":
         copyGroup(file_path)
+        print(colored("Group copied successfully!", "green"))
         exit()
     elif action == "7":
         wpImport()
