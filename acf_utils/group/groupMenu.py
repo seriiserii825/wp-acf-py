@@ -20,6 +20,7 @@ def groupMenu(file_path, group_index):
     print(colored("6) Import:", "red"))
     print(colored("7) Export:", "red"))
     print(colored("8) Exit", "red"))
+    print(colored("9) Back to Main Menu", "green"))
     showAll(file_path, group_index)
     action = input("Enter your choice: ")
     if action == "1":
@@ -48,5 +49,7 @@ def groupMenu(file_path, group_index):
         exit()
     elif action == "8":
         exit()
+    elif action == "9":
+        return False
     else:
         groupMenu(file_path, group_index)

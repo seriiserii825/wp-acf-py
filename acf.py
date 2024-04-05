@@ -57,7 +57,9 @@ def mainMenu(file_path):
     elif action == "2":
         group_index = chooseGroup(file_path)
         showAll(file_path, group_index)
-        groupMenu(file_path, group_index)
+        back = groupMenu(file_path, group_index)
+        if back == False:
+            mainMenu(file_path)
     elif action == "3":
         addGroup(file_path)
         mainMenu(file_path)
