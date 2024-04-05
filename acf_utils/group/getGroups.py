@@ -10,9 +10,9 @@ def getGroups(file_path):
                 # print(j)
                 fields = []
                 for k in j['sub_fields']:
-                    field = {'name': k['name'], 'label': k['label'], 'key': k['key']}
+                    field = {'name': k['name'], 'label': k['label']}
                     fields.append(field)
-                group = {'name': j['name'], 'label': j['label'],  'key': j['key'], 'fields': fields}
+                group = {'name': j['name'], 'label': j['label'], 'index': i['fields'].index(j), 'fields': fields}
                 groups.append(group)
     # print(groups)
     return groups

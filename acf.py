@@ -39,9 +39,10 @@ file_path = getFullPath()
 def mainMenu(file_path):
     print('----------------------------- Menu -----------------------------')
     print(colored("1) Show All:", "yellow"))
-    print(colored("2) Choose Group:", "green"))
-    print(colored("3) Add Group:", "green"))
-    print(colored("4) Edit Group:", "green"))
+    print(colored("2) Add Group:", "green"))
+    print(colored("3) Edit Group:", "green"))
+    print(colored("4) Delete Group:", "green"))
+    print(colored("5) Choose Group:", "green"))
     # print(colored("4) Delete Group:", "green"))
     # print(colored("4.1) Copy Group:", "green"))
     # print(colored("5) Add Field:", "blue"))
@@ -57,17 +58,24 @@ def mainMenu(file_path):
         showAll(file_path)  # show groups with fields
         mainMenu(file_path)
     elif action == "2":
-        group_id = chooseGroup(file_path)
-        showAll(file_path, group_id)
-        groupMenu(file_path, group_id)
-    elif action == "3":
         addGroup(file_path)  # add group
         # groupHandler(file_path)  # edit group
+        mainMenu(file_path)
+    elif action == "3":
+        editGroup(file_path)  # add group
         mainMenu(file_path)
     elif action == "4":
         group_id = chooseGroup(file_path)
         editGroup(file_path, group_id)  # add group
         mainMenu(file_path)
+    elif action == "5":
+        group_id = chooseGroup(file_path)
+        editGroup(file_path, group_id)  # add group
+        mainMenu(file_path)
+
+        group_id = chooseGroup(file_path)
+        showAll(file_path, group_id)
+        groupMenu(file_path, group_id)
     # elif action == "4":
     #     groupHandler(file_path, True)  # delete Group
     #     mainMenu(file_path)
