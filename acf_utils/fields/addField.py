@@ -5,7 +5,7 @@ from acf_utils.fields.getRepeteaterFields import getRepeaterFields
 from acf_utils.fields.newField import newField
 
 def addField(file_path, group_index, field_index = False):
-    print(f"field_index: {field_index}")
+    # print(f"field_index: {field_index}")
     field_name = input("Enter field name: ")
     field_slug = field_name.replace(" ", "_").lower()
     if field_name != "":
