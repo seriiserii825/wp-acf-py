@@ -84,10 +84,10 @@ else:
             exit()
         elif action == "7":
             wpImport()
-            mainMenu(file_path)
+            exit()
         elif action == "8":
             wpExport()
-            mainMenu(file_path)
+            exit()
         elif action == "9":
             exit()
         else:
