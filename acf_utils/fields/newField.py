@@ -1,6 +1,6 @@
 from acf_utils.fields.getFieldId import getFieldId
 
-def newField(field_name, field_slug, field_type, field_width):
+def newField(field_name, field_slug, field_type, field_width, field_options = []):
     field_id = getFieldId()
     field = {}
     field['key'] = field_id
@@ -31,4 +31,6 @@ def newField(field_name, field_slug, field_type, field_width):
         field['layout'] = "block"
         field['button_label'] = "Add Row"
         field['sub_fields'] = []
+    if field_type == "true_false":
+        field['ui'] = 1
     return field

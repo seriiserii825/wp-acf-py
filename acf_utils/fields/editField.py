@@ -1,4 +1,5 @@
 import json
+from acf_utils.fields.fieldTypes import fieldTypes
 
 from acf_utils.fields.getFields import getFields
 from acf_utils.fields.newField import newField
@@ -24,26 +25,23 @@ def editField(file_path, group_index):
     else:
         field_slug = field_name.replace(" ", "_").lower()
 
-    print(f"Field name: {field_name}")
-
-
-    # field_type = sub_fields[int(field_index)]['type']
-    # field_types = ['text', 'textarea', 'number', 'email', 'url', 'wysiwyg', 'image', 'gallery', 'file', 'repeater', 'message']
-    # for i in field_types:
-    #     print(f"{field_types.index(i)}) {i}")
-    # field_type_index = input("Enter your choice: ")
-    # if field_type_index == "":
-    #     field_type_index = field_types.index(field_type)
-    # field_type = field_types[int(field_type_index)]
-    # default_width = sub_fields[int(field_index)]['wrapper']['width']
-    # field_width = input("Enter field width: ")
-    # if field_width == "":
-    #     field_width = default_width
-    # field = newField(field_name, field_slug, field_type, field_width)
-    # with open(file_path, 'r') as file:
-    #     # read
-    #     data = json.load(file)
-    #     data[0]['fields'][group_index]['sub_fields'][int(field_index)] = field
-    #     newData = json.dumps(data, indent=4)
-    # with open(file_path, 'w') as file:
-    #     file.write(newData)
+    field_type = sub_fields[int(field_index)]['type']
+    field_types = fieldTypes()
+    for i in field_types:
+        print(f"{field_types.index(i)}) {i}")
+    field_type_index = input("Enter your choice: ")
+    if field_type_index == "":
+        field_type_index = field_types.index(field_type)
+    field_type = field_types[int(field_type_index)]
+    default_width = sub_fields[int(field_index)]['wrapper']['width']
+    field_width = input("Enter field width: ")
+    if field_width == "":
+        field_width = default_width
+    field = newField(field_name, field_slug, field_type, field_width)
+    with open(file_path, 'r') as file:
+        # read
+        data = json.load(file)
+        data[0]['fields'][group_index]['sub_fields'][int(field_index)] = field
+        newData = json.dumps(data, indent=4)
+    with open(file_path, 'w') as file:
+        file.write(newData)

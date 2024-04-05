@@ -1,4 +1,5 @@
 import json
+from acf_utils.fields.fieldTypes import fieldTypes
 
 from acf_utils.fields.getRepeteaterFields import getRepeaterFields
 
@@ -9,7 +10,7 @@ def addField(file_path, group_index, field_index = False):
     field_name = input("Enter field name: ")
     field_slug = field_name.replace(" ", "_").lower()
     if field_name != "":
-        field_types = ['text', 'textarea', 'number', 'email', 'url', 'wysiwyg', 'image', 'gallery', 'file', 'repeater', 'message']
+        field_types = fieldTypes()
         for i in field_types:
             print(f"{field_types.index(i)}) {i}")
         field_type_index = input("Enter your choice: ")
