@@ -6,7 +6,7 @@ from acf_utils.fields.newField import newField
 
 def addField(file_path, group_index, field_index = False):
     field_index = int(field_index) if field_index else False
-    print(f"field_index: {field_index}")
+    # print(f"field_index: {field_index}")
     field_name = input("Enter field name: ")
     field_slug = field_name.replace(" ", "_").lower()
     if field_name != "":
@@ -24,9 +24,9 @@ def addField(file_path, group_index, field_index = False):
         with open(file_path, 'r') as file:
             # read
             data = json.load(file)
-            if field_index:
+            if field_index != False or field_index == 0:
                 field_index_path  = data[0]['fields'][group_index]['sub_fields'][field_index]
-                print(f"field_index_path: {field_index_path}")
+                # print(f"field_index_path: {field_index_path}")
                 field_index_path['sub_fields'].append(field)
             else:
                 data[0]['fields'][group_index]['sub_fields'].append(field)

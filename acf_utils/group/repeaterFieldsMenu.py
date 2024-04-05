@@ -16,27 +16,30 @@ def repeaterFieldsMenu(file_path, group_index, field_index):
     print(colored("4) Delete Field:", "blue"))
     print(colored("5) Import:", "red"))
     print(colored("6) Export:", "red"))
-    print(colored("7) Exit", "red"))
-    showAll(file_path, group_index)
+    print(colored("7) Back", "blue"))
+    print(colored("8) Exit", "red"))
     action = input("Enter your choice: ")
     if action == "1":
         showAll(file_path, group_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
     if action == "2":
+        print(f"field_index: {field_index}")
         addField(file_path, group_index, field_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
-    if action == "4":
+    if action == "3":
         editField(file_path, group_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
-    if action == "5":
+    if action == "4":
         deleteField(file_path, group_index)
         repeaterFieldsMenu(file_path, group_index, field_index)
-    elif action == "6":
+    elif action == "5":
         wpImport()
         exit()
-    elif action == "7":
+    elif action == "6":
         wpExport()
         exit()
+    elif action == "7":
+        return False
     elif action == "8":
         exit()
     else:

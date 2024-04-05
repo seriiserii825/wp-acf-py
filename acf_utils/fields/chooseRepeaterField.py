@@ -11,7 +11,7 @@ def chooseRepeaterField(file_path, group_index):
         return False
     else:
         for i in repeater_fields:
-            print(f"{repeater_fields.index(i)}) {i['label']}")
+            print(f"{i['index']}) {i['label']}")
             choice = input("Enter your choice: ")
             if choice == "":
                 return False

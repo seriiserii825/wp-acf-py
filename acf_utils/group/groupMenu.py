@@ -21,7 +21,6 @@ def groupMenu(file_path, group_index):
     print(colored("7) Export:", "red"))
     print(colored("8) Exit", "red"))
     print(colored("9) Back to Main Menu", "green"))
-    showAll(file_path, group_index)
     action = input("Enter your choice: ")
     if action == "1":
         showAll(file_path, group_index)
@@ -34,7 +33,9 @@ def groupMenu(file_path, group_index):
         if field_index == False:
             groupMenu(file_path, group_index)
         else:
-            repeaterFieldsMenu(file_path, group_index, field_index)
+            back = repeaterFieldsMenu(file_path, group_index, field_index)
+            if back == False:
+                groupMenu(file_path, group_index)
     if action == "4":
         editField(file_path, group_index)
         groupMenu(file_path, group_index)
