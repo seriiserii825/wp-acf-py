@@ -44,6 +44,7 @@ def mainMenu(file_path):
         group_index = chooseGroup(file_path)
         showAll(file_path, group_index)
         back = groupMenu(file_path, group_index)
+        print(f"Back: {back}")
         if back == False:
             mainMenu(file_path)
     elif action == "3":
