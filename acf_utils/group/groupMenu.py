@@ -27,6 +27,7 @@ def groupMenu(file_path, group_index):
         groupMenu(file_path, group_index)
     if action == "2":
         addField(file_path, group_index)
+        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     if action == "3":
         field_index = chooseRepeaterField(file_path, group_index)
@@ -38,9 +39,11 @@ def groupMenu(file_path, group_index):
                 groupMenu(file_path, group_index)
     if action == "4":
         editField(file_path, group_index)
+        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     if action == "5":
         deleteField(file_path, group_index)
+        showAll(file_path, group_index)
         groupMenu(file_path, group_index)
     elif action == "6":
         wpImport()
